@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import json
@@ -15,6 +16,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# Umami 统计
+components.html("""
+<script defer src="https://cloud.umami.is/script.js" data-website-id="64e07ed3-9f6b-4c35-9955-5e2734f07400"></script>
+""", height=0)
 
 # 访问统计（使用 visitor-badge）
 st.sidebar.markdown("""
