@@ -16,6 +16,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# 访问统计（使用 visitor-badge）
+st.sidebar.markdown("""
+<div style="text-align: center; padding: 10px;">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=yunpiao.kaggle-gemini3-writeups-explorer" alt="访问量"/>
+</div>
+""", unsafe_allow_html=True)
+
 # 卡片样式 CSS
 st.markdown("""
 <style>
