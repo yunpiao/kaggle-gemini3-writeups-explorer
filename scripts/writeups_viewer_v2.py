@@ -22,13 +22,6 @@ components.html("""
 <script defer src="https://cloud.umami.is/script.js" data-website-id="64e07ed3-9f6b-4c35-9955-5e2734f07400"></script>
 """, height=0)
 
-# 访问统计（使用 visitor-badge）
-st.sidebar.markdown("""
-<div style="text-align: center; padding: 10px;">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=yunpiao.kaggle-gemini3-writeups-explorer" alt="访问量"/>
-</div>
-""", unsafe_allow_html=True)
-
 # 卡片样式 CSS
 st.markdown("""
 <style>
