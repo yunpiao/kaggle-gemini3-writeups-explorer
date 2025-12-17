@@ -308,6 +308,8 @@ def main():
         with left_col:
             # 完整内容
             md_path = item.get('markdown_path')
+            content_loaded = False
+
             if pd.notna(md_path):
                 full_path = f"kaggle_writeups_export/{md_path}"
                 try:
@@ -316,8 +318,18 @@ def main():
                     st.markdown("### 📄 完整描述")
                     with st.container(height=500):
                         st.markdown(content)
+                    content_loaded = True
+                except FileNotFoundError:
+                    pass  # 文件不存在时静默处理,使用回退方案
                 except Exception as e:
-                    st.warning(f"无法加载: {e}")
+                    st.warning(f"文件读取错误: {e}")
+
+            # 回退方案：使用 description 字段
+            if not content_loaded:
+                st.markdown("### 📄 描述")
+                description = item.get('description', '暂无描述')
+                with st.container(height=500):
+                    st.markdown(description if pd.notna(description) else '暂无描述')
 
         with right_col:
             # YouTube 嵌入
